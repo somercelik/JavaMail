@@ -27,7 +27,7 @@ public class JMailController {
         String emailPort = "587";
         this.emailProp = System.getProperties();
         this.emailProp.put("mail.smtp.port", emailPort);
-        String[] hedefler = new String[]{"dovahkiinborn@outlook.com"};
+        String[] hedefler = new String[]{""};
         String emailKonu = "Java Email";
         String emailMetni = "JavaMail API deneme mail'idir.";
         this.mailSession = Session.getDefaultInstance(this.emailProp,null);
@@ -48,8 +48,8 @@ public class JMailController {
 
     public void sendEmail() throws AddressException, MessagingException {
         String emailHost = "smtp.gmail.com";
-        String fromUser = "soner.dovahkiin";
-        String fromUserEmailPassword = "Dovahkiin0057g";
+        String fromUser = "" //GMail kullanıcı adı;
+        String fromUserEmailPassword = "" //GMail şifre;
         Transport transport = this.mailSession.getTransport("smtp");
         transport.connect(emailHost, fromUser, fromUserEmailPassword);
         transport.sendMessage(this.emailMessage, this.emailMessage.getAllRecipients());
